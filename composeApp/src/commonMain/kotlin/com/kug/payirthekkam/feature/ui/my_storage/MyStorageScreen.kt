@@ -42,6 +42,14 @@ fun MyStorageScreen(
     val viewModel = AppModule.bookingViewModel
     val state by viewModel.booking.collectAsStateWithLifecycle()
 
+    if (state == null) {
+        Text(
+            "No Storage Available",
+            modifier = Modifier.fillMaxSize(),
+            textAlign = TextAlign.Center
+        )
+    }
+
     state?.let {
         MyStorageContent(
             MyStorageData(
@@ -103,7 +111,6 @@ fun MyStorageCard(booking: Booking) {
     ) {
         Column(
             modifier = Modifier.padding(16.dp)
-
         ) {
             Row {
                 Row {

@@ -96,6 +96,10 @@ fun FindStorageScreen(
         mutableStateOf("")
     }
 
+    if (storageList.isEmpty()) {
+        Text("No Facilities Found")
+    }
+
     Column(
         modifier = Modifier
             .background(Color(0xFFF9FAF9))
