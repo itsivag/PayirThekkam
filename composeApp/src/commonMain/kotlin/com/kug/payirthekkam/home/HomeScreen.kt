@@ -24,6 +24,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.SegmentedButtonDefaults.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -52,7 +53,12 @@ val actionsList = listOf(
 fun HomeScreen(onFindStorageClicked: () -> Unit) {
     val screen = LocalWindowInfo.current.containerSize
     val height = screen.height
-
+    val bookingVm = AppModule.bookingViewModel
+    val facilityVm = AppModule.facilityViewModel
+    LaunchedEffect(Unit) {
+        print( bookingVm.loadBooking(id = "1234", token = "jwt_token_here"))
+        print(  facilityVm.loadFacilities())
+    }
     Column(
         modifier = Modifier
             .fillMaxSize()
