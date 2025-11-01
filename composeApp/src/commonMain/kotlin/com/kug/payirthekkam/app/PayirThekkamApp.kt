@@ -16,6 +16,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.kug.payirthekkam.feature.ui.ProfileScreen
 import com.kug.payirthekkam.feature.ui.FeatureScreen
 import com.kug.payirthekkam.findstorage.ui.FindStorageScreen
 import com.kug.payirthekkam.feature.ui.my_storage.MyStorageScreen
@@ -31,6 +32,7 @@ import payirthekkam.composeapp.generated.resources.feature
 import payirthekkam.composeapp.generated.resources.home
 import payirthekkam.composeapp.generated.resources.login
 import payirthekkam.composeapp.generated.resources.my_storage
+import payirthekkam.composeapp.generated.resources.profile
 
 /**
  * enum values that represent the screens in the app
@@ -40,7 +42,8 @@ enum class Screen(val title: StringResource) {
     Home(title = Res.string.home),
     Feature(title = Res.string.feature),
     FindStorage(title = Res.string.feature),
-    MyStorage(title = Res.string.my_storage)
+    MyStorage(title = Res.string.my_storage),
+    Profile(title = Res.string.profile)
 }
 
 /**
@@ -132,6 +135,10 @@ fun PayirThekkamApp(
                 route = Screen.MyStorage.name
             ) {
                 MyStorageScreen()
+            }
+
+            composable(Screen.Profile.name) {
+                ProfileScreen()
             }
         }
     }
