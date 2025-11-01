@@ -33,7 +33,7 @@ kotlin {
             implementation(libs.androidx.activity.compose)
         }
         commonMain.dependencies {
-            implementation("io.ktor:ktor-client-okhttp:3.0.0")
+//            implementation("io.ktor:ktor-client-okhttp:3.0.0")
             // Ktor client core
             implementation("io.ktor:ktor-client-core:3.0.0")
             implementation("io.ktor:ktor-client-content-negotiation:3.0.0")
@@ -43,7 +43,6 @@ kotlin {
             implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
 
             // DateTime and UUID support
-            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.1")
             implementation("com.benasher44:uuid:0.8.4")
 
             // Coroutine support (for ViewModel/Repository)
@@ -53,7 +52,6 @@ kotlin {
 
             // UUID generation
             implementation("com.benasher44:uuid:0.8.4")
-            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.1")
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)

@@ -29,6 +29,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -79,20 +83,20 @@ private val storageList = listOf(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FindStorageScreen(
-    popBack: () -> Unit,
     viewModel: FindStorageViewModel = viewModel { FindStorageViewModel() }
 ) {
+    var searchQuery by rememberSaveable {
+        mutableStateOf("")
+    }
 
     Column(
         modifier = Modifier
             .background(Color(0xFFF9FAF9))
             .padding(16.dp)
     ) {
-//        stickyHeader {
-////            // Search bar
         OutlinedTextField(
-            value = "",
-            onValueChange = {},
+            value = searchQuery,
+            onValueChange = { searchQuery = it },
             placeholder = { Text("Search location, type...") },
             leadingIcon = {
                 Icon(
@@ -202,12 +206,6 @@ fun StorageCard(item: StorageItem) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(item.name, fontWeight = FontWeight.SemiBold)
                         Spacer(Modifier.width(4.dp))
-//                        Icon(
-//                            Icons.Default.Check,
-//                            contentDescription = null,
-//                            tint = Color(0xFF2E7D32),
-//                            modifier = Modifier.size(16.dp)
-//                        )
                     }
                     Spacer(Modifier.height(4.dp))
                     Row(verticalAlignment = Alignment.CenterVertically) {
@@ -258,13 +256,6 @@ fun StorageCard(item: StorageItem) {
                     shape = RoundedCornerShape(12.dp)
                 ) {
                     Text("Book Now", color = Color.White)
-                    Spacer(Modifier.width(6.dp))
-//                    Icon(
-//                        Icons.Default.ArrowForward,
-//                        contentDescription = null,
-//                        tint = Color.White,
-//                        modifier = Modifier.size(16.dp)
-//                    )
                 }
             }
         }

@@ -119,7 +119,7 @@ fun PayirThekkamApp(
             }
 
             composable(Screen.FindStorage.name) {
-                FindStorageScreen(popBack = { navController.popBackStack() })
+                FindStorageScreen()
             }
 
             composable(
