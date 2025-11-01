@@ -11,7 +11,8 @@ plugins {
 kotlin {
     androidTarget {
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_11)
+            jvmTarget.set(JvmTarget.JVM_17)
+
         }
     }
     
@@ -27,10 +28,32 @@ kotlin {
     
     sourceSets {
         androidMain.dependencies {
+            implementation("io.ktor:ktor-client-okhttp:3.0.0")
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
         }
         commonMain.dependencies {
+            implementation("io.ktor:ktor-client-okhttp:3.0.0")
+            // Ktor client core
+            implementation("io.ktor:ktor-client-core:3.0.0")
+            implementation("io.ktor:ktor-client-content-negotiation:3.0.0")
+            implementation("io.ktor:ktor-serialization-kotlinx-json:3.0.0")
+
+            // JSON serialization
+            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+
+            // DateTime and UUID support
+            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.1")
+            implementation("com.benasher44:uuid:0.8.4")
+
+            // Coroutine support (for ViewModel/Repository)
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
+            // Date & time handling
+            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.1")
+
+            // UUID generation
+            implementation("com.benasher44:uuid:0.8.4")
+            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.1")
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
@@ -43,6 +66,7 @@ kotlin {
             implementation(libs.navigation.compose)
         }
         commonTest.dependencies {
+            implementation("io.ktor:ktor-client-darwin:3.0.0")
             implementation(libs.kotlin.test)
         }
     }
@@ -77,5 +101,6 @@ android {
 
 dependencies {
     debugImplementation(compose.uiTooling)
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
 }
 
