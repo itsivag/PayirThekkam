@@ -2,6 +2,8 @@ package com.kug.payirthekkam.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -33,6 +35,7 @@ import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.kug.payirthekkam.di.AppModule
 
 private val recentActivities = listOf(
     RecentActivity("Storage Booked", "Paddy - 500 kg", "2 days ago", "📦"),
@@ -53,17 +56,20 @@ val actionsList = listOf(
 fun HomeScreen(onFindStorageClicked: () -> Unit) {
     val screen = LocalWindowInfo.current.containerSize
     val height = screen.height
+
     val bookingVm = AppModule.bookingViewModel
     val facilityVm = AppModule.facilityViewModel
+
     LaunchedEffect(Unit) {
-        print( bookingVm.loadBooking(id = "1234", token = "jwt_token_here"))
-        print(  facilityVm.loadFacilities())
+        print(bookingVm.loadBooking(id = "1234", token = "jwt_token_here"))
+        print(facilityVm.loadFacilities())
     }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFF7FAF7))
-            .padding(16.dp)
+            .padding(16.dp).scrollable(rememberScrollState(), orientation = Orientation.Vertical)
     ) {
         // Header
         Box(
