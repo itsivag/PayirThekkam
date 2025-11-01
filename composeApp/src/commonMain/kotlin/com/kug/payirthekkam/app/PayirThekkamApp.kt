@@ -17,6 +17,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.kug.payirthekkam.feature.ui.FeatureScreen
 import com.kug.payirthekkam.findstorage.ui.FindStorageScreen
+import com.kug.payirthekkam.feature.ui.my_storage.MyStorageScreen
 import com.kug.payirthekkam.home.HomeScreen
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.painterResource
@@ -26,6 +27,7 @@ import payirthekkam.composeapp.generated.resources.arrow_back
 import payirthekkam.composeapp.generated.resources.back_button
 import payirthekkam.composeapp.generated.resources.feature
 import payirthekkam.composeapp.generated.resources.home
+import payirthekkam.composeapp.generated.resources.my_storage
 
 /**
  * enum values that represent the screens in the app
@@ -33,7 +35,8 @@ import payirthekkam.composeapp.generated.resources.home
 enum class Screen(val title: StringResource) {
     Home(title = Res.string.home),
     Feature(title = Res.string.feature),
-    FindStorage(title = Res.string.feature)
+    FindStorage(title = Res.string.feature),
+    MyStorage(title = Res.string.my_storage)
 }
 
 /**
@@ -91,7 +94,7 @@ fun PayirThekkamApp(
 
         NavHost(
             navController = navController,
-            startDestination = Screen.Home.name,
+            startDestination = Screen.MyStorage.name,
             modifier = Modifier
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
@@ -111,6 +114,12 @@ fun PayirThekkamApp(
 
             composable(Screen.FindStorage.name) {
                 FindStorageScreen(popBack = { navController.popBackStack() })
+            }
+
+            composable(
+                route = Screen.MyStorage.name
+            ) {
+                MyStorageScreen()
             }
         }
     }
