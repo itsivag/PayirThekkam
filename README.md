@@ -9,7 +9,10 @@ PayirThekkam is a mobile application designed to help farmers easily find nearby
 The goal is to reduce post-harvest losses by giving farmers quick access to verified storage locations, availability details, pricing, and directions.
 
 Figma UI Designs:
-[https://www.figma.com/make/2AWM2oC6k1TDcnGrIvNUfh/AgroLink-Tamil-Nadu-App?node-id=0-4&t=uf8YU6cHnEeVsEFO-1](https://www.figma.com/make/2AWM2oC6k1TDcnGrIvNUfh/AgroLink-Tamil-Nadu-App?node-id=0-4&t=uf8YU6cHnEeVsEFO-1)
+[link](https://www.figma.com/make/2AWM2oC6k1TDcnGrIvNUfh/AgroLink-Tamil-Nadu-App?node-id=0-4&t=uf8YU6cHnEeVsEFO-1)
+
+Product Design:
+[link](https://github.com/kugchennai/PayirThekkam-MobileApp/blob/main/Seed%20Document.pdf)
 
 ## Key Features
 
